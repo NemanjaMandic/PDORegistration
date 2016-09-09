@@ -16,7 +16,7 @@
           if($users->rowCount()){
              $err .= "Username allready exists, please choose another<br>";
           }else{
-          	$username = $_POST['username'];
+          	 $username = $_POST['username'];
           }
 
    	  }else{
@@ -24,7 +24,7 @@
    	  }
 
    	   if(!empty($_POST['name'])){
-   	  	
+   	  	 $name = $_POST['name'];
    	  }else{
    	  	 $err .= "Name cant be empty <br>";
    	  }
@@ -71,6 +71,21 @@
    	  if($err <> ""){
    	  	echo $err;
    	  }else{
+
+   	  	$qUsr = "INSERT INTO `korisnici` SET 
+   	  	         `username` = :username,
+   	  	         `password` = :password,
+   	  	         `name` = :name,
+   	  	         `email` = :email";
+
+   	  	         $c = $connector->prepare($qUsr);
+   	  	         $c->execute(array(
+                           ':username' => $username,
+                           ':password' => $password,
+                           ':name' => $name,
+                           ':email' => $email
+   	  	         	));
+
    	  	echo "you registered";
    	  }
    	}
