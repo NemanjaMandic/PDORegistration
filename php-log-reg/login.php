@@ -6,7 +6,21 @@ $err = "";
 if(isset($_POST['submit'])){
 
     if(!empty($_POST['username'])){
+       
+       $qUsrName = "SELECT * FROM `korisnici` WHERE `username` = :username";
 
+       $users = $connector->prepare($qUsrName);
+       $users->execute(array(
+           ':username' => $_POST['username']
+       	));
+
+       if($users->rowCount() == 1){
+
+       }else if($users->rowCount() >= 2){
+       	  $err .= "Some error occured<br>";
+       }else{
+       	 $err .= "Username doesnt exist. Please register<br>";
+       }
     }else{
     	$err .= "Enter username <br>";
     }
