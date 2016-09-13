@@ -27,7 +27,26 @@ if(isset($_POST['submit'])){
 
 
     if(!empty($_POST['pass'])){
-    	
+    	if(isset($_POST['username'])){
+    		$qAcount = "SELECT * FROM `korisnici` 
+    		            WHERE `username` = :username
+    		            AND `password` = :pass";
+    	}
+
+    	$users = $connector->prepare($qAcount);
+    	$users->execute(array(
+           ':username' => $_POST['username'],
+           ':pass' => $_POST['pass']
+    		));
+
+    	 if($users->rowCount() == 1){
+           
+       }else if($users->rowCount() >= 2){
+       	  $err .= "Some error occured<br>";
+       }else{
+       	 $err .= "Password is not correct<br>";
+       }
+
     }else{
     	$err .= "Enter password <br>";
     }
