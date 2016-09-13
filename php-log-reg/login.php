@@ -59,7 +59,7 @@ if(isset($_POST['submit'])){
 }
 ?>
 
-<form method="POST" action="login.php">
+<form method="POST" action="index.php?option=login">
 	<table>
 		<tr>
 			<td>Username</td>

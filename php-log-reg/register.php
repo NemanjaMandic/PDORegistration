@@ -90,7 +90,7 @@
    	  }
    	}
 ?>
-<form method="POST" action="register.php">
+<form method="POST" action="index.php?option=register">
 	<table>
 		<tr>
 			<td>Username</td>
