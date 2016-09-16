@@ -1,6 +1,6 @@
 <?php 
 
-require_once("connector.php");
+//require_once("connector.php");
 
 $qUser = "SELECT * FROM `korisnici`";
 $users = $connector->query($qUser);

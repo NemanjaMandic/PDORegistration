@@ -1,12 +1,15 @@
 <?php 
 session_start();
 
+require_once("connector.php");
+
 if(isset($_SESSION['id'])){
 
 	?>
 
 	<a href="index.php">HOME</a> |
 	<a href="index.php?option=user_list">Users</a> |
+	<a href="index.php?option=profile">Profile</a> |
 	<a href="index.php?option=logout">Log Out</a> 
 	<hr>
 
