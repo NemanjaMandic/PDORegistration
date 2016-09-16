@@ -52,7 +52,12 @@ if(isset($_POST['submit'])){
     }
 
     if( $err == ""){
-      
+      echo "You are logged in successfully !";
+      $qLog = $users->fetchAll(PDO::FETCH_OBJ);
+
+      foreach ($qLog as $acc) {
+      	$account = $acc->id;
+      }
     }else{
     	echo $err;
     }
