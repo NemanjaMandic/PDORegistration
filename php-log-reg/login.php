@@ -58,6 +58,10 @@ if(isset($_POST['submit'])){
       foreach ($qLog as $acc) {
       	$account = $acc->id;
       }
+
+      $_SESSION['id'] = $account;
+      header("Location:index.php");
+      
     }else{
     	echo $err;
     }
