@@ -96,7 +96,7 @@
    	  }
    	}
 ?>
-<form method="POST" action="index.php?option=register">
+<form method="POST" action="index.php?option=register" enctype="multipart/form-data">
 	<table>
 		<tr>
 			<td>Username</td>
@@ -128,6 +128,12 @@
 				<input type="email" name="email">
 			</td>
 		</tr>
+    <tr>
+      <td>Avatar</td>
+      <td>
+        <input type="file" name="avatar">
+      </td>
+    </tr>
 		<tr>
 
 			<td colspan="2">
