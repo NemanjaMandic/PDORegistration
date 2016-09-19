@@ -37,7 +37,7 @@ if(isset($_POST['submit'])){
     	$users = $connector->prepare($qAcount);
     	$users->execute(array(
            ':username' => $_POST['username'],
-           ':pass' => $_POST['pass']
+           ':pass' => md5($_POST['pass'])
     		));
 
     	 if($users->rowCount() == 1){

@@ -86,9 +86,13 @@
                            ':email' => $email
    	  	         	));
 
-   	  	echo "you registered";
-        
-         header("Location:index.php");
+               
+
+   	          	echo "you registered";
+
+                  header("Location:index.php");
+
+         
    	  }
    	}
 ?>
