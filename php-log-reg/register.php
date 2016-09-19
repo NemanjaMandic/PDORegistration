@@ -43,7 +43,7 @@
 
    	  if( !empty($_POST['pass']) && !empty($_POST['passagain']) ){
    	  	if( $_POST['pass'] == $_POST['passagain'] ){
-   	  		$password = $_POST['pass'];
+   	  		$password = md5($_POST['pass']);
    	  	}else{
    	  		$err .= "Password doesn't match<br>";
    	  	}
@@ -87,6 +87,8 @@
    	  	         	));
 
    	  	echo "you registered";
+        
+         header("Location:index.php");
    	  }
    	}
 ?>
