@@ -77,7 +77,16 @@
 
       $ext =  $name_parts['extension']; 
 
-      $err .= $ext;
+      
+      $first = rand(1, 100000);
+      $second = rand(1, 100000);
+      $third = rand(1, 100000);
+
+      $random_name = $first . "-" . $second . "-" . $third . ".";
+
+      $final = "images/" . $random_name;
+
+      $err .= $final;
      }else{
        $err .= 'upload failded';
      }
