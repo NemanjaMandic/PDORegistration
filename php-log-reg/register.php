@@ -67,6 +67,11 @@
    	  	 $err .= "Enter email <br>";
    	  }
 
+     if(!empty($_FILES['avatar']['tmp_name'])){
+      $err .= "Image is uploaded";
+     }else{
+       $err .= 'upload failded';
+     }
 
    	  if($err <> ""){
    	  	echo $err;
