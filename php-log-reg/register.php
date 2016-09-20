@@ -68,7 +68,16 @@
    	  }
 
      if(!empty($_FILES['avatar']['tmp_name'])){
-      $err .= "Image is uploaded";
+
+      $folder = "images/";
+      $folder = $folder . basename($_FILES['avatar']['name']);
+
+      $tmpName = $_FILES['avatar']['tmp_name'];
+      $name_parts = pathinfo($_FILES['avatar']['name']);
+
+      $ext =  $name_parts['extension']; 
+
+      $err .= $ext;
      }else{
        $err .= 'upload failded';
      }
