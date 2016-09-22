@@ -30,6 +30,7 @@
     		 $fetchProf = $profile->fetchAll(PDO::FETCH_OBJ);
    	          foreach($fetchProf as $p){
    	          	echo "<h3>" . $p->name . "</h3>";
+                  echo "<img src='". $p->avatar."' width='200'><br>";
    	          	echo $p->username . "<br>";
    	          	echo $p->email . "<br>";
    	          }

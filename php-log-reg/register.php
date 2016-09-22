@@ -113,7 +113,21 @@
 
                
            }else{
+                $qUsr = "INSERT INTO `korisnici` SET 
+                 `username` = :username,
+                 `password` = :password,
+                 `name` = :name,
+                 `email` = :email,
+                 `avatar` = :avatar";
 
+                 $c = $connector->prepare($qUsr);
+                 $c->execute(array(
+                           ':username' => $username,
+                           ':password' => $password,
+                           ':name' => $name,
+                           ':email' => $email,
+                           ':avatar' => "images/default.png"
+                  ));
            }
    	          	echo "you registered";
 
