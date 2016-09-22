@@ -86,7 +86,7 @@
 
       $final = "images/" . $random_name;
 
-      $err .= $final;
+     // $err .= $final;
      }else{
        $err .= 'upload failded';
      }
@@ -94,23 +94,27 @@
    	  if($err <> ""){
    	  	echo $err;
    	  }else{
-
+        if(move_uploaded_file($tmpName, $final)){
    	  	$qUsr = "INSERT INTO `korisnici` SET 
    	  	         `username` = :username,
    	  	         `password` = :password,
    	  	         `name` = :name,
-   	  	         `email` = :email";
+   	  	         `email` = :email,
+                 `avatar` = :avatar";
 
    	  	         $c = $connector->prepare($qUsr);
    	  	         $c->execute(array(
                            ':username' => $username,
                            ':password' => $password,
                            ':name' => $name,
-                           ':email' => $email
+                           ':email' => $email,
+                           ':avatar' => $final
    	  	         	));
 
                
+           }else{
 
+           }
    	          	echo "you registered";
 
                   header("Location:index.php");
