@@ -12,7 +12,8 @@
 	?>
 
 	<a href="index.php">Home</a> /
-	<a href="index.php?option=categories">Categories</a>
+	<a href="index.php?option=categories">Categories</a> /
+	<a href="index.php?option=blogers">Blogers</a>
 	<hr>
 
 	<?php 
