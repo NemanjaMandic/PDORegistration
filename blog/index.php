@@ -18,14 +18,18 @@
 
 	<?php 
 
-	 $option = $_GET['option'];
-	  $file = $option . ".php";
+	 if(isset($_GET['option'])){
+	 	$option = $_GET['option'];
+		$file = $option . ".php";
 
 
-	if(file_exists( $file )){
-       include_once( $file );
-      
-	}else{
-		echo "Page doesn't exists";
-	}
+		if(file_exists( $file )){
+	       include_once( $file );
+	      
+		}else{
+			echo "Page doesn't exists";
+		}
+	 }else{
+	 	include_once("blogs.php");
+	 }
 	 
