@@ -28,4 +28,12 @@ $qBlogs = "
 $blogs = $connector->query($qBlogs);
 $allBlogs = $blogs->fetchAll(PDO::FETCH_OBJ);
 
-echo "<pre>", print_r($allBlogs), "</pre>";
+//echo "<pre>", print_r($allBlogs), "</pre>";
+
+foreach ($allBlogs as $b) {
+	echo "<h2>". $b->blodz_tajtl ."</h2><br>";
+	echo "<p>Published: ". $b->blodz_dejt ."</br>From:" . $b->user_username . "<br>Category: ". $b->blog_category_name ."</p>";
+	echo "<p>". $b->blodz_text ."</p><br>";
+    echo "<a href=''>See more...</a><br>";
+    echo "<hr>";
+}
