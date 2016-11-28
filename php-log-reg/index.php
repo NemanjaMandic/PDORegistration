@@ -10,6 +10,7 @@ if(isset($_SESSION['id'])){
 	<a href="index.php">HOME</a> |
 	<a href="index.php?option=user_list">Users</a> |
 	<a href="index.php?option=profile">Profile</a> |
+	<a href="index.php?option=messages">Messages</a> |
 	<a href="index.php?option=logout">Log Out</a> 
 	<hr>
 
