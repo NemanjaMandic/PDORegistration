@@ -36,12 +36,25 @@ if(isset($_SESSION['id'])){
 
 				
                     $pRazgovori->execute(array(
-                          ':korisnik' => $_SESSION['id']
+                          ':korisnik' => $_SESSION['id'],
                     	));
 				//prikaz podataka
                 $fRazgovori =  $pRazgovori->fetchAll(PDO::FETCH_OBJ);
-                echo "<pre>", print_r($fRazgovori), "</pre>";
+               // echo "<pre>", print_r($fRazgovori), "</pre>";
+             
+                 foreach ($fRazgovori as $r) {
+                 	?>
+                    <div style="border: 1px solid #000; padding: 5px;">
+	                 	<?php
+		                 	echo "<b><a href=''>" . $r->razgovorNaslov . "</a></b>";
+		                 	echo "<i>" . $r->porukeVreme . "</i>";
+	                 	?>
+                    </div>
+                 	<?php
+                 }
 				?>
+
+
 			</td>
 			<td style="width: 60%;">Messages in conversation</td>
 		</tr>
