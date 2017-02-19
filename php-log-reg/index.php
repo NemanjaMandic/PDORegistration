@@ -21,7 +21,7 @@ if(isset($_SESSION['id'])){
       if(file_exists($file)){
       	include_once($file);
       }else{
-      	echo "Page doesnt exists";
+      	echo "Page doesnt exists, return back to <a href='index.php'>home page</a>";
       }
 	}else{
 		echo "Pocetna stanica";
