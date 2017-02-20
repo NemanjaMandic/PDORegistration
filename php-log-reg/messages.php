@@ -46,7 +46,7 @@ if(isset($_SESSION['id'])){
                  	?>
                     <div style="border: 1px solid #000; padding: 5px;">
 	                 	<?php
-		                 	echo "<b><a href=''>" . $r->razgovorNaslov . "</a></b>";
+		                 	echo "<b><a href='index.php?option=messages&chat=" . $r->razgovorId . "'>" . $r->razgovorNaslov . "</a></b>";
 		                 	echo "<i>" . $r->porukeVreme . "</i>";
 	                 	?>
                     </div>
@@ -56,7 +56,37 @@ if(isset($_SESSION['id'])){
 
 
 			</td>
-			<td style="width: 60%;">Messages in conversation</td>
+			<td style="width: 60%; padding: 5px; vertical-align: top;">
+				<?php 
+				if(isset($_GET['razgovori'])){
+                    
+                    $qKontrola = "
+                      SELECT * FROM `razgovor_ucesnici`
+                      WHERE `razgovor_id` = :razgovor
+                      AND `korisnik_id` = :sesija
+                    ";
+
+                    $pKontrola = $connector->prepare($qKontrola);
+
+                    $pKontrola->execute(array(
+   
+                        ':razgovor' => $_GET['razgovor'],
+                        ':sesija'   => $_SESSION['id']
+
+                    	));
+
+                    if($pKontrola->rowCount() == 1){
+                    	echo "Izlistaj poruke";
+                    }else if($pKontrola->rowCount() == 0){
+                    	echo "Neovlasten pristup";
+                    }
+
+				}else{
+
+				}
+
+				?>
+			</td>
 		</tr>
 	</table>
 	
